@@ -126,7 +126,8 @@ def main():
             cognome = json_data['Cognome']
             nome    = json_data['Nome']
 
-            if st.button("Aggiungi al DB"):
+            add_db = st.button("Aggiungi al DB")
+            if add_db:
                 df = pd.read_csv("df.csv") 
                 df = df.append([json_data])
 
