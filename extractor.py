@@ -15,7 +15,7 @@ import openai
 
 
 def responseBuilder(system,text):
-    openAIEnvironmentKey = ""
+    openAIEnvironmentKey = key
     
     os.environ["OPENAI_API_BASE"] = "https://openai-francecentral-lab.openai.azure.com"
     os.environ["OPENAI_API_VERSION"] = "2023-08-01-preview"
