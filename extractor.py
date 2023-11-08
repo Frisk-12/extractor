@@ -125,6 +125,11 @@ def main():
             #if st.button("Download JSON"):
             cognome = json_data['Cognome']
             nome    = json_data['Nome']
+
+            df = pd.DataFrame(json_data)
+
+            # Visualizza il DataFrame di Pandas utilizzando Streamlit
+            st.write(df)
             
             #with open(cognome_nome+".json", "w") as file:
             st.download_button(label = 'Download JSON',
