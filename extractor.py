@@ -121,7 +121,12 @@ def main():
 
             # Visualizza il JSON formattato
             st.code(formatted_json, language='json')
-                        
+
+            if st.button("Download JSON"):
+                cognome = formatted_json['cognome']
+                nome    = formatted_json['nome']
+                with open("extractor/"+cognome_nome+".json", "w") as file:
+                    json.dump(data, file)
                         
             #st.write((str(resp.choices[0]["message"]["content"])))
 
