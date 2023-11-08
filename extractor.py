@@ -15,7 +15,7 @@ import openai
 
 
 def responseBuilder(system,text):
-    key = st.secrets("key")
+    key = st.secrets["key"]
     openAIEnvironmentKey = key
     
     os.environ["OPENAI_API_BASE"] = "https://openai-francecentral-lab.openai.azure.com"
