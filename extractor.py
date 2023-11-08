@@ -14,6 +14,7 @@ import json
 import openai
 
 df = pd.read_csv("df.csv")
+st.write(df)
 
 def responseBuilder(system,text):
     key = st.secrets["key"]
