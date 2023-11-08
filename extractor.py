@@ -127,7 +127,7 @@ def main():
             cognome = json_data['Cognome']
             nome    = json_data['Nome']
 
-            df = pd.DataFrame(json_data,index=[0])
+            df = pd.DataFrame([json_data],index=[0])
 
             # Visualizza il DataFrame di Pandas utilizzando Streamlit
             st.write(df)
