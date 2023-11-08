@@ -110,7 +110,7 @@ def main():
                 st.sidebar.success("Accesso Riuscito")
     if authenticate(user,psw,user_t,psw_t):
         text = st.text_area("Inserisci il testo da formattare:")
-        form = st.button("Formatta!")
+        form = st.toggle("Formatta!")
         if form:
             resp = responseBuilder(system, text)
             # Carica il JSON
