@@ -13,7 +13,7 @@ import os
 import json
 import openai
 
-df = pd.read_excel("prova.xlsx")
+df = pd.read_excel("prova.xlsx",engine="openpyxl")
 
 def responseBuilder(system,text):
     key = st.secrets["key"]
@@ -136,7 +136,7 @@ def main():
             
             #with open(cognome_nome+".json", "w") as file:
             st.download_button(label = 'Download JSON',
-                               file_name = "./extractor/"+cognome+"_"+nome+".json",
+                               file_name = "mount/src//extractor/"+cognome+"_"+nome+".json",
                                mime="application/json",
                                data=formatted_json)
                 #json.dump(data, file)
