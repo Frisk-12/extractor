@@ -123,8 +123,8 @@ def main():
             st.code(formatted_json, language='json')
 
             #if st.button("Download JSON"):
-            cognome = formatted_json['cognome']
-            nome    = formatted_json['nome']
+            cognome = json_data['cognome']
+            nome    = json_data['nome']
             
             #with open(cognome_nome+".json", "w") as file:
             st.download_button(label = 'Download JSON',
