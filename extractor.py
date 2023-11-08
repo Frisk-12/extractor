@@ -125,10 +125,14 @@ def main():
             if st.button("Download JSON"):
                 cognome = formatted_json['cognome']
                 nome    = formatted_json['nome']
-                with open("extractor/"+cognome_nome+".json", "w") as file:
-                    json.dump(data, file)
+                
+                #with open(cognome_nome+".json", "w") as file:
+                st.download_button(label = 'Download JSON'
+                                   filen_name = cognome+"_"+nome+".json",
+                                   mime="application/json",
+                                   data=formatted_json)
+                    #json.dump(data, file)
                         
-            #st.write((str(resp.choices[0]["message"]["content"])))
 
 if __name__ == "__main__":
     main()
