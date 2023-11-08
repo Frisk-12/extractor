@@ -92,7 +92,7 @@ def main():
 
     
     user = "Jurix1"
-    psw  = "@MarketinG@"
+    psw = st.secrets["psw"]
     
     def authenticate(user,psw,user_t,psw_t):
         if (user_t == user)&(psw_t==psw):
