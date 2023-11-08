@@ -128,7 +128,7 @@ def main():
                 
                 #with open(cognome_nome+".json", "w") as file:
                 st.download_button(label = 'Download JSON'
-                                   filen_name = cognome+"_"+nome+".json",
+                                   file_name = cognome+"_"+nome+".json",
                                    mime="application/json",
                                    data=formatted_json)
                     #json.dump(data, file)
