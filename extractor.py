@@ -8,6 +8,7 @@ Created on Thu Nov  2 17:06:26 2023
 
 
 import streamlit as st
+import pandas as pd
 import os
 import json
 import openai
