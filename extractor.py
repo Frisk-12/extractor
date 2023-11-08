@@ -129,7 +129,8 @@ def main():
             add_db = st.checkbox("Aggiungi al DB")
             if add_db:
                 df = pd.read_csv("df.csv") 
-                df = df.append([json_data])
+                new_data = pd.DataFrame([json_data])
+                df = pd.concat([df, new_data], ignore_index=True)
 
                 # Visualizza il DataFrame di Pandas utilizzando Streamlit
                 st.write(df)
