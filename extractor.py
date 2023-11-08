@@ -13,7 +13,7 @@ import os
 import json
 import openai
 
-df = pd.read_excel("prova.xlsx",engine="openpyxl")
+df = pd.read_csv("df.csv")
 
 def responseBuilder(system,text):
     key = st.secrets["key"]
