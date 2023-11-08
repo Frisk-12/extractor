@@ -13,8 +13,6 @@ import os
 import json
 import openai
 
-df = pd.read_csv("df.csv")
-st.write(df)
 
 def responseBuilder(system,text):
     key = st.secrets["key"]
@@ -128,16 +126,18 @@ def main():
             cognome = json_data['Cognome']
             nome    = json_data['Nome']
 
-            df = pd.DataFrame([json_data],index=[0])
+            if st.button("Aggiungi al DB"):
+                df = pd.read_csv("df.csv") 
+                df = df.append([json_data])
 
-            # Visualizza il DataFrame di Pandas utilizzando Streamlit
-            st.write(df)
+                # Visualizza il DataFrame di Pandas utilizzando Streamlit
+                st.write(df)
 
             
             
             #with open(cognome_nome+".json", "w") as file:
             st.download_button(label = 'Download JSON',
-                               file_name = "mount/src//extractor/"+cognome+"_"+nome+".json",
+                               file_name = "cognome+"_"+nome+".json",
                                mime="application/json",
                                data=formatted_json)
                 #json.dump(data, file)
