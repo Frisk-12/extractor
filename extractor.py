@@ -134,6 +134,10 @@ def main():
 
                 # Visualizza il DataFrame di Pandas utilizzando Streamlit
                 st.write(df)
+                if st.checkbox("Gestisci il DF"):
+                    num = st.number_input("Quale riga vuoi eliminare?",min_value=0,max_value=len(df))
+                    if st.button("Elimina"):
+                        df = df.drop(num)
 
             
             
