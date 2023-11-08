@@ -122,16 +122,16 @@ def main():
             # Visualizza il JSON formattato
             st.code(formatted_json, language='json')
 
-            if st.button("Download JSON"):
-                cognome = formatted_json['cognome']
-                nome    = formatted_json['nome']
-                
-                #with open(cognome_nome+".json", "w") as file:
-                st.download_button(label = 'Download JSON',
-                                   file_name = cognome+"_"+nome+".json",
-                                   mime="application/json",
-                                   data=formatted_json)
-                    #json.dump(data, file)
+            #if st.button("Download JSON"):
+            cognome = formatted_json['cognome']
+            nome    = formatted_json['nome']
+            
+            #with open(cognome_nome+".json", "w") as file:
+            st.download_button(label = 'Download JSON',
+                               file_name = cognome+"_"+nome+".json",
+                               mime="application/json",
+                               data=formatted_json)
+                #json.dump(data, file)
                         
 
 if __name__ == "__main__":
