@@ -131,7 +131,7 @@ def main():
                 df = pd.read_csv("df.csv") 
                 new_data = pd.DataFrame([json_data])
                 df = pd.concat([df, new_data], ignore_index=True)
-
+                df.to_csv("df.csv")
                 # Visualizza il DataFrame di Pandas utilizzando Streamlit
                 st.write(df)
                 if st.checkbox("Gestisci il DF"):
