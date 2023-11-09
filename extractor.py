@@ -13,10 +13,12 @@ import os
 import json
 import openai
 from streamlit_gsheets import GSheetsConnection
+import gspread
+
 
 # Create a connection object.
-conn = st.connection("gcs", type=GSheetsConnection)
-df = conn.read(spreadsheet = st.secrets['spreadsheet'])
+# conn = st.connection("gcs", type=GSheetsConnection)
+# df = conn.read(spreadsheet = st.secrets['spreadsheet'])
 
 
 def responseBuilder(system,text):
@@ -135,16 +137,21 @@ def main():
 
             add_db = st.checkbox("Aggiungi al DB")
             if add_db:
-                df = pd.read_csv("df.csv") 
-                new_data = pd.DataFrame([json_data])
-                df = pd.concat([df, new_data], ignore_index=True)
-                df.to_csv("df.csv")
-                # Visualizza il DataFrame di Pandas utilizzando Streamlit
-                st.write(df)
-                if st.checkbox("Gestisci il DF"):
-                    num = st.number_input("Quale riga vuoi eliminare?",min_value=0,max_value=len(df))
-                    if st.button("Elimina"):
-                        df = df.drop(num)
+                gc = gspread.service_account_from_dict(st.secrets.connections.gcs)
+                sh = gc.open("DB_PotClients")
+                worksheet = sh.get_worksheet(0)
+
+                df = pd.DataFrame(worksheet.get_all_values())
+                df.columns = df.iloc[0]
+                df = df[1:]
+
+                df.loc[len(df)+1] = [json_data]
+                worksheet.update([df.columns.values.tolist()] + df.values.tolist())
+
+                # if st.checkbox("Gestisci il DF"):
+                #     num = st.number_input("Quale riga vuoi eliminare?",min_value=0,max_value=len(df))
+                #     if st.button("Elimina"):
+                #         df = df.drop(num)
 
             
             
