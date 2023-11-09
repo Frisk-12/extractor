@@ -12,23 +12,12 @@ import pandas as pd
 import os
 import json
 import openai
-import gspread
-from google.oauth2 import service_account
+from streamlit_gsheets import GSheetsConnection
 
+# Create a connection object.
+conn = st.connection("gsheets", type=GSheetsConnection)
 
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["client_email"],
-    scopes=[
-        "https://www.googleapis.com/auth/spreadsheets","https://www.googleapis.com/auth/drive"
-    ],
-)
-conn = connect(credentials=credentials)
-client=gspread.authorize(credentials)
-
-
-sheet_id = st.secrets["sheet_id"]
-csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv"
-database_df = pd.read_csv(csv_url, on_bad_lines='skip')
+df = conn.read()
 
 def responseBuilder(system,text):
     key = st.secrets["key"]
