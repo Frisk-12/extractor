@@ -22,14 +22,15 @@ df = conn.read(spreadsheet = st.secrets['spreadsheet'])
 def responseBuilder(system,text):
     key = st.secrets["key"]
     openAIEnvironmentKey = key
-    
-    os.environ["OPENAI_API_BASE"] = "https://openai-francecentral-lab.openai.azure.com"
+
+    openai_api_base = st.secrets["openai_api_base"]
+    os.environ["OPENAI_API_BASE"] = openai_api_base
     os.environ["OPENAI_API_VERSION"] = "2023-08-01-preview"
     os.environ["OPENAI_API_TYPE"] = "azure"
     os.environ["OPENAI_API_KEY"] = openAIEnvironmentKey
     
     openai.api_type = "azure"
-    openai.api_base = "https://openai-francecentral-lab.openai.azure.com"
+    openai.api_base = openai_api_base
     openai.api_version = "2023-08-01-preview"
     openai.api_key = openAIEnvironmentKey
     
@@ -56,6 +57,7 @@ def main():
     Cognome (str)
     Nome (str)
     Titolo (str)
+    Professionista Legale (boolean 1/0)
     Specializzazioni (list) #Ad esempio: civile, penale, tributario, societario etc.
     Hashtag (list)
     Informazioni (str)
