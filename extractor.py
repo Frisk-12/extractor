@@ -145,7 +145,7 @@ def main():
                 df.columns = df.iloc[0]
                 df = df[1:]
 
-                df.loc[len(df)+1] = [json_data]
+                df.loc[len(df)+1] = list(json_data.values())#[json_data]
                 worksheet.update([df.columns.values.tolist()] + df.values.tolist())
 
                 # if st.checkbox("Gestisci il DF"):
