@@ -12,6 +12,13 @@ import pandas as pd
 import os
 import json
 import openai
+from streamlit_gsheets import GSheetsConnection
+
+# Create a connection object.
+conn = st.connection("gsheets", type=GSheetsConnection)
+
+df = conn.read()
+st.write(df)
 
 
 def responseBuilder(system,text):
