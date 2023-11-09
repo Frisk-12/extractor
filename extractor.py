@@ -15,8 +15,9 @@ import openai
 from streamlit_gsheets import GSheetsConnection
 
 # Create a connection object.
-conn = st.connection("gsheets", type=GSheetsConnection)
-#df = conn.read(spreadsheet = st.secrets['spreadsheet'])
+conn = st.connection("gcs", type=GSheetsConnection)
+df = conn.read(spreadsheet = st.secrets['spreadsheet'])
+
 
 def responseBuilder(system,text):
     key = st.secrets["key"]
