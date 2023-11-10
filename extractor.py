@@ -54,7 +54,7 @@ def main():
     st.write("Benvenuto in questa semplice applicazione!")
     
     system = """
-    Completa in formato json le seguenti info, prendendole e interpretando dal testo fornito dall'utente. In caso di nessuna informazione inserisci "###".
+    Completa in formato json le seguenti info, prendendole e interpretando dal testo fornito dall'utente. In caso di nessuna informazione, lascia o una lista vuota oppure una stringa vuota ("").
     Cognome (str)
     Nome (str)
     Titolo (str)
