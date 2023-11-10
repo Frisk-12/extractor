@@ -54,7 +54,7 @@ def main():
     st.write("Benvenuto in questa semplice applicazione!")
     
     system = """
-    Completa in formato json le seguenti info, prendendole e interpretando dal testo fornito dall'utente.
+    Completa in formato json le seguenti info, prendendole e interpretando dal testo fornito dall'utente. In caso di nessuna informazione inserisci 'None'.
 
     Cognome (str)
     Nome (str)
@@ -65,9 +65,9 @@ def main():
     Informazioni (str)
     Interessi (list)
     Azienda attuale (str)
-    Formazione - Triennale (boolean 1/0)
-    Formazione - Specialistica (boolean 1/0)
-    Formazione - Master (boolean 1/0)
+    Laurea Triennale (boolean 1/0)
+    Laurea Magistrale (boolean 1/0)
+    Master (boolean 1/0)
     Formazione - Altro (boolean 1/0) 
     Paese (str)
     Città (str)
@@ -90,13 +90,14 @@ def main():
     Cause (list)
     Pagine seguite(list)
     Competenze (list)
-    Appassionato digital transformation (boolean 1/0)
-    Appassionato tecnologia (boolean 1/0)
-    Appassionato IA (boolean 1/0)
-    Appassionato innovazione (boolean 1/0)
+    Segue temi digital transformation (boolean 1/0)
+    Segue temi tecnologia (boolean 1/0)
+    Segue temi IA (boolean 1/0)
+    Segue temi innovazione (boolean 1/0)
     Effetua attività su linkedin (boolean 1/0)
     Ultime attività (list)
     Altri profili consultati (list)
+    Sintesi Profilo (str) #Fai una sintesi di massimo 50 parole
     """
 
     
