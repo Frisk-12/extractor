@@ -55,6 +55,7 @@ def main():
     
     system = """
     Completa in formato json le seguenti info, prendendole e interpretando dal testo fornito dall'utente. In caso di nessuna informazione inserisci "###".
+    Cognome (str)
     Nome (str)
     Titolo (str)
     Professionista Legale (boolean 1/0)
