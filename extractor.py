@@ -58,6 +58,7 @@ def main():
     Cognome (str)
     Nome (str)
     Titolo (str)
+    Età (str) *Se non indicata stimare età in un range, eg 35-45 
     Professionista Legale (boolean 1/0)
     Specializzazioni (list) #Ad esempio: civile, penale, tributario, societario etc.
     Hashtag (list)
