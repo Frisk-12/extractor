@@ -58,14 +58,14 @@ def main():
     Cognome (str)
     Nome (str)
     Titolo (str)
-    Età (str) *Se non indicata stimare età in un range, eg 35-45 
+    Professore universitario (boolean 1/0)
+    Età (str) *Se non indicata stimare età in un range, eg 35-45, 30-40, 45-55 etc
     Professionista Legale (boolean 1/0)
     Specializzazioni (list) #Ad esempio: civile, penale, tributario, societario etc.
     Hashtag (list)
     Informazioni (str)
     Interessi (list)
     Azienda attuale (str)
-    Laurea Triennale (boolean 1/0)
     Laurea Magistrale (boolean 1/0)
     Master (boolean 1/0)
     Formazione - Altro (boolean 1/0) 
@@ -90,11 +90,11 @@ def main():
     Cause (list)
     Pagine seguite(list)
     Competenze (list)
-    Segue temi digital transformation (boolean 1/0)
-    Segue temi tecnologia (boolean 1/0)
-    Segue temi intelligenza artificiale (boolean 1/0)
-    Segue temi innovazione (boolean 1/0)
-    Effetua attività su linkedin (boolean 1/0)
+    Digital transformation (boolean 1/0) #1 se presenti argomenti inerenti
+    Tecnologia (boolean 1/0) #1 se presenti argomenti inerenti
+    Intelligenza artificiale (boolean 1/0) #1 se presenti argomenti inerenti
+    Innovazione (boolean 1/0) #1 se presenti argomenti inerenti
+    Effetua attività su linkedin (boolean 1/0) #1 se presenti argomenti inerenti
     Ultime attività (list)
     Altri profili consultati (list)
     Sintesi Profilo (str) #Fai una sintesi di massimo 50 parole
