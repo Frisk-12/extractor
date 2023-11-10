@@ -42,7 +42,7 @@ def responseBuilder(system,text):
         messages = [{"role":"system","content":system},
             {"role": "user", "content": text}
         ],
-        max_tokens=12000
+        max_tokens=6000
     )
     
     return response#str(response.choices[0]["message"]["content"])
