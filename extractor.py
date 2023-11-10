@@ -55,6 +55,7 @@ def main():
     
     system = """
     Completa in formato json le seguenti info, prendendole e interpretando dal testo fornito dall'utente. In caso di nessuna informazione, lascia o una lista vuota oppure una stringa vuota ("").
+    ###
     Cognome (str)
     Nome (str)
     Titolo (str)
@@ -98,6 +99,7 @@ def main():
     Ultime attività (list)
     Altri profili consultati (list)
     Sintesi Profilo (str) #Fai una sintesi di massimo 50 parole
+    ###
     """
 
     
