@@ -150,6 +150,9 @@ def main():
 
                 worksheet.update([df.columns.values.tolist()] + df.values.tolist())
 
+                # df = pd.DataFrame(worksheet.get_all_values())
+                # df = df.applymap(lambda x: literal_eval(x) if isinstance(x, str) and x.startswith("[") else x)
+
                 # if st.checkbox("Gestisci il DF"):
                 #     num = st.number_input("Quale riga vuoi eliminare?",min_value=0,max_value=len(df))
                 #     if st.button("Elimina"):
