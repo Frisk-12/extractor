@@ -59,7 +59,7 @@ def main():
     Nome (str)
     Titolo (str)
     Professore universitario (boolean 1/0)
-    Età (str) *Se non indicata stimare età in un range, eg 35-45, 30-40, 45-55 etc
+    Età (str) *Se non indicata, stimare età in un range, eg 35-45, 30-40, 45-55 etc
     Professionista Legale (boolean 1/0)
     Specializzazioni (list) #Ad esempio: civile, penale, tributario, societario etc.
     Hashtag (list)
