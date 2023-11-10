@@ -98,7 +98,7 @@ def main():
     Effetua attività su linkedin (boolean 1/0) #1 se presenti argomenti inerenti
     Ultime attività (list)
     Altri profili consultati (list)
-    Sintesi Profilo (str) #Fai una sintesi di massimo 50 parole
+    Sintesi Profilo in 50 parole (str) 
     ###
     """
 
