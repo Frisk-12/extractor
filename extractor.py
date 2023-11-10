@@ -89,7 +89,8 @@ def main():
     Cinese - Livello (str)
     Organizzazioni (list)
     Cause (list)
-    Pagine seguite(list)
+    Pagine seguite (list)
+    Account Premium (boolean 1/0)
     Competenze (list)
     Digital transformation (boolean 1/0) #1 se presenti argomenti inerenti
     Tecnologia (boolean 1/0) #1 se presenti argomenti inerenti
@@ -98,7 +99,7 @@ def main():
     Effetua attività su linkedin (boolean 1/0) #1 se presenti argomenti inerenti
     Ultime attività (list)
     Altri profili consultati (list)
-    Sintesi Profilo in 50 parole (str) 
+    Fai una sintesi del Profilo in 50 parole (str) 
     ###
     """
 
