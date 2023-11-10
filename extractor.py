@@ -92,7 +92,7 @@ def main():
     Competenze (list)
     Segue temi digital transformation (boolean 1/0)
     Segue temi tecnologia (boolean 1/0)
-    Segue temi IA (boolean 1/0)
+    Segue temi intelligenza artificiale (boolean 1/0)
     Segue temi innovazione (boolean 1/0)
     Effetua attività su linkedin (boolean 1/0)
     Ultime attività (list)
