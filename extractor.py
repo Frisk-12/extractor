@@ -132,15 +132,15 @@ def main():
         df = pd.DataFrame(worksheet.get_all_values())
         df.columns = df.iloc[0]
         df = df[1:]
-
-        condition = (df.Cognome + "_" + df.Nome) == (surname + "_" + name)
-        alreadyUser = any(condition)
-        if alreadyUser:
-            rows = df[condition]
-            st.write(rows)
-        else:
-            st.success("Procedi")
-                
+        if st.button("Check"):
+            condition = (df.Cognome + "_" + df.Nome) == (surname + "_" + name)
+            alreadyUser = any(condition)
+            if alreadyUser:
+                rows = df[condition]
+                st.write(rows)
+            else:
+                st.success("Procedi")
+                    
         
         text = st.text_area("Inserisci il testo da formattare:")
         form = st.toggle("Formatta!")
