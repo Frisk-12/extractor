@@ -122,6 +122,26 @@ def main():
             if auth:
                 st.sidebar.success("Accesso Riuscito")
     if authenticate(user,psw,user_t,psw_t):
+        name = st.text_input("Inserisci il nome")
+        surname = st.text_input("Inserisci il cognome")
+
+        gc = gspread.service_account_from_dict(st.secrets.connections.gcs)
+        sh = gc.open("DB_PotClients")
+        worksheet = sh.get_worksheet(0)
+
+        df = pd.DataFrame(worksheet.get_all_values())
+        df.columns = df.iloc[0]
+        df = df[1:]
+
+        condition = (df.Cognome + "_" + df.Nome) == (surname + "_" + name)
+        alreadyUser = any(condition)
+        if alreadyUser:
+            rows = df[condition]
+            st.write(rows)
+        else:
+            st.success("Procedi")
+                
+        
         text = st.text_area("Inserisci il testo da formattare:")
         form = st.toggle("Formatta!")
         if form:
@@ -141,14 +161,6 @@ def main():
 
             add_db = st.checkbox("Aggiungi al DB")
             if add_db:
-                gc = gspread.service_account_from_dict(st.secrets.connections.gcs)
-                sh = gc.open("DB_PotClients")
-                worksheet = sh.get_worksheet(0)
-
-                df = pd.DataFrame(worksheet.get_all_values())
-                df.columns = df.iloc[0]
-                df = df[1:]
-
                 df.loc[len(df)+1] = list(json_data.values())#[json_data]
                 df = df.applymap(lambda x: str(x) if isinstance(x, list) else x)
 
