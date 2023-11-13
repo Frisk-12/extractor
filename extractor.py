@@ -175,7 +175,7 @@ def main():
     
                 add_db = st.checkbox("Aggiungi al DB")
                 if add_db:
-                    df.loc[len(df)+1] = list(json_data.values())+[user_t]#[json_data]
+                    df.loc[len(df)+1] = list(json_data.values())#[json_data]
                     df = df.applymap(lambda x: str(x) if isinstance(x, list) else x)
     
                     worksheet.update([df.columns.values.tolist()] + df.values.tolist())
