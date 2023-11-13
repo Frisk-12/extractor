@@ -140,12 +140,24 @@ def main():
                 st.write(rows)
             else:
                 st.success("Procedi")
-                    
-        
                 text = st.text_area("Inserisci il testo da formattare:")
+
+                s1 = "Segui \nSfondo immagine"
+                s2 = "Potrebbe interessartiPotrebbe interessarti"
+
+                start_index = text.find(s1)
+                end_index   = text.find(s2)
+                
+                # Estrai la parte desiderata
+                if start_index != -1:
+                    text = text[start_index:]
+                if end_index !=1:
+                    text = text[:end_index]
+
                 form = st.toggle("Formatta!")
                 if form:
                     resp = responseBuilder(system, text)
+                    st.info('Hai usato '+str(resp["usage"]['total_tokens']) +" tokens.", icon="ℹ️")
                     # Carica il JSON
                     json_data = json.loads(str(resp.choices[0]["message"]["content"]))
         
