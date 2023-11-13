@@ -142,46 +142,46 @@ def main():
                 st.success("Procedi")
                     
         
-        text = st.text_area("Inserisci il testo da formattare:")
-        form = st.toggle("Formatta!")
-        if form:
-            resp = responseBuilder(system, text)
-            # Carica il JSON
-            json_data = json.loads(str(resp.choices[0]["message"]["content"]))
-
-            # Formatta il JSON in modo leggibile
-            formatted_json = json.dumps(json_data, indent = 4,ensure_ascii=False)
-
-            # Visualizza il JSON formattato
-            st.code(formatted_json, language='json')
-
-            #if st.button("Download JSON"):
-            cognome = json_data['Cognome']
-            nome    = json_data['Nome']
-
-            add_db = st.checkbox("Aggiungi al DB")
-            if add_db:
-                df.loc[len(df)+1] = list(json_data.values())#[json_data]
-                df = df.applymap(lambda x: str(x) if isinstance(x, list) else x)
-
-                worksheet.update([df.columns.values.tolist()] + df.values.tolist())
-
-                # df = pd.DataFrame(worksheet.get_all_values())
-                # df = df.applymap(lambda x: literal_eval(x) if isinstance(x, str) and x.startswith("[") else x)
-
-                # if st.checkbox("Gestisci il DF"):
-                #     num = st.number_input("Quale riga vuoi eliminare?",min_value=0,max_value=len(df))
-                #     if st.button("Elimina"):
-                #         df = df.drop(num)
-
-            
-            
-            #with open(cognome_nome+".json", "w") as file:
-            st.download_button(label = 'Download JSON',
-                               file_name = cognome+"_"+nome+".json",
-                               mime="application/json",
-                               data=formatted_json)
-                #json.dump(data, file)
+                text = st.text_area("Inserisci il testo da formattare:")
+                form = st.toggle("Formatta!")
+                if form:
+                    resp = responseBuilder(system, text)
+                    # Carica il JSON
+                    json_data = json.loads(str(resp.choices[0]["message"]["content"]))
+        
+                    # Formatta il JSON in modo leggibile
+                    formatted_json = json.dumps(json_data, indent = 4,ensure_ascii=False)
+        
+                    # Visualizza il JSON formattato
+                    st.code(formatted_json, language='json')
+        
+                    #if st.button("Download JSON"):
+                    cognome = json_data['Cognome']
+                    nome    = json_data['Nome']
+        
+                    add_db = st.checkbox("Aggiungi al DB")
+                    if add_db:
+                        df.loc[len(df)+1] = list(json_data.values())#[json_data]
+                        df = df.applymap(lambda x: str(x) if isinstance(x, list) else x)
+        
+                        worksheet.update([df.columns.values.tolist()] + df.values.tolist())
+        
+                        # df = pd.DataFrame(worksheet.get_all_values())
+                        # df = df.applymap(lambda x: literal_eval(x) if isinstance(x, str) and x.startswith("[") else x)
+        
+                        # if st.checkbox("Gestisci il DF"):
+                        #     num = st.number_input("Quale riga vuoi eliminare?",min_value=0,max_value=len(df))
+                        #     if st.button("Elimina"):
+                        #         df = df.drop(num)
+        
+                    
+                    
+                    #with open(cognome_nome+".json", "w") as file:
+                    st.download_button(label = 'Download JSON',
+                                       file_name = cognome+"_"+nome+".json",
+                                       mime="application/json",
+                                       data=formatted_json)
+                        #json.dump(data, file)
                         
 
 if __name__ == "__main__":
