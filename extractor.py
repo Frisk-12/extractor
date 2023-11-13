@@ -152,9 +152,9 @@ def main():
             
             # Estrai la parte desiderata
             if start_index != -1:
-                text = text[start_index:]
+                text = "{"+text[start_index:]
             if end_index !=1:
-                text = text[:end_index]
+                text = text[:end_index]+"}"
 
             form = st.toggle("Formatta!")
             if form:
