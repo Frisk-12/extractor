@@ -179,6 +179,8 @@ def main():
                     df = df.applymap(lambda x: str(x) if isinstance(x, list) else x)
     
                     worksheet.update([df.columns.values.tolist()] + df.values.tolist())
+
+                    st.success("Aggiunto!")
     
                     # df = pd.DataFrame(worksheet.get_all_values())
                     # df = df.applymap(lambda x: literal_eval(x) if isinstance(x, str) and x.startswith("[") else x)
