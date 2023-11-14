@@ -104,7 +104,7 @@ def main():
     """
 
     
-    user = ["Jurix1","Kare1","K3kko1"]
+    user = ["Jurix1"]#,"Kare1","K3kko1"]
     psw = st.secrets["psw"]
     
     def authenticate(user,psw,user_t,psw_t):
